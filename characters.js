@@ -1,6 +1,5 @@
 /**
- Betrayal at House on the Hill Player Aid v_1.2
- Created by Sean Doyle.
+ Betrayal at House on the Hill Player Aid (v_1.2 Jan 2017)  Created by Sean Doyle.
  This file contains the Character constructor function, character trait values, and the full array of characters.
 
  NEW IN THIS VERSION:
@@ -8,11 +7,11 @@
     -Remove 0 attribute values from character trait arrays.
     -Hardcode Skull & crossbones as 0 value attribute.
     -implement use strict & clean up code
+    -Remove "use strict"
 */
 
 /**########## CHARACTER CONSTRUCTOR FUNCTION ##########**/
 function Character(name, photo, colour, MII, SPI, SAI, KNI){
-    "use strict";
     this.ch_name = name;
     this.ch_img = photo;
     this.ch_Colr = colour;
@@ -30,7 +29,7 @@ function Character(name, photo, colour, MII, SPI, SAI, KNI){
     //MIGHT
     this.shoMit = function(tableIndex){
         var tblId = "tbl" + tableIndex;
-        var thisTbl, mitRow, mitTrt, mitTD0, mitTD;
+        var thisTbl, mitRow, mitTrt, mitTD0, mitTD, i;
         //GET TABLE AND CREATE ROW WITH TRAIT NAME
         thisTbl = document.getElementById(tblId);
         mitRow = document.createElement("tr");
@@ -43,15 +42,15 @@ function Character(name, photo, colour, MII, SPI, SAI, KNI){
         mitRow.appendChild(mitTD0);
 
         //CREATE <td> WITH TRAIT VALUES AND ADD TO ROW
-        for(var i = 0; i < this.tr_mit.length; i++){
+        for (i = 0; i < this.tr_mit.length; i++) {
             //CHECK IF DEFAULT AND ADD CLASS IF SO
-            if(i == this.mitIndx){
+            if (i == this.mitIndx) {
                 mitTD = document.createElement("td");
                 mitTD.setAttribute("name", this.ch_img + "Mit");
                 mitTD.setAttribute("class", "TR_default TR_actv");
                 mitTD.textContent = this.tr_mit[i];
                 mitRow.appendChild(mitTD);
-            }else{
+            } else {
                 mitTD = document.createElement("td");
                 mitTD.setAttribute("name", this.ch_img + "Mit");
                 mitTD.textContent = this.tr_mit[i];
@@ -115,15 +114,15 @@ function Character(name, photo, colour, MII, SPI, SAI, KNI){
         sanRow.appendChild(sanTD0);
 
         //CREATE <td> WITH TRAIT VALUES AND ADD TO ROW
-        for(var i = 0; i < this.tr_san.length; i++){
+        for (var i = 0; i < this.tr_san.length; i++) {
             //CHECK IF DEFAULT AND ADD CLASS IF SO
-            if(i == this.sanIndx){
+            if (i == this.sanIndx) {
                 sanTD = document.createElement("td");
                 sanTD.setAttribute("name", this.ch_img + "San");
                 sanTD.setAttribute("class", "TR_default TR_actv");
                 sanTD.textContent = this.tr_san[i];
                 sanRow.appendChild(sanTD);
-            }else{
+            } else {
                 sanTD = document.createElement("td");
                 sanTD.setAttribute("name", this.ch_img + "San");
                 sanTD.textContent = this.tr_san[i];
@@ -137,7 +136,7 @@ function Character(name, photo, colour, MII, SPI, SAI, KNI){
     //KNOWLEDGE
     this.shoKno = function(tableIndex){
         var tblId = "tbl" + tableIndex;
-        var thisTbl, knoRow, knoTrt, knoTD0, knoTD;
+        var thisTbl, knoRow, knoTrt, knoTD0, knoTD, i;
 
         //GET TABLE AND CREATE ROW WITH TRAIT NAME
         thisTbl = document.getElementById(tblId);
@@ -151,15 +150,15 @@ function Character(name, photo, colour, MII, SPI, SAI, KNI){
         knoRow.appendChild(knoTD);
 
         //CREATE <td> WITH TRAIT VALUES AND ADD TO ROW
-        for(var i = 0; i < this.tr_kno.length; i++){
+        for (i = 0; i < this.tr_kno.length; i++) {
             //CHECK IF DEFAULT AND ADD CLASS IF SO
-            if(i == this.knoIndx){
+            if (i == this.knoIndx) {
                 knoTD = document.createElement("td");
                 knoTD.setAttribute("name", this.ch_img + "Kno");
                 knoTD.setAttribute("class", "TR_default TR_actv");
                 knoTD.textContent = this.tr_kno[i];
                 knoRow.appendChild(knoTD);
-            }else{
+            } else {
                 knoTD = document.createElement("td");
                 knoTD.setAttribute("name", this.ch_img + "Kno");
                 knoTD.textContent = this.tr_kno[i];

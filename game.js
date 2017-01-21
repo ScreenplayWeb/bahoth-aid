@@ -1,5 +1,5 @@
 /**
-Betrayal at House on the Hill Player Aid (v_1.1.1 Feb 9)  Created by Sean Doyle.
+Betrayal at House on the Hill Player Aid (v_1.2 Jan 2017)  Created by Sean Doyle.
 NEW:
     -DISPLAY LIST OF CHARACTER NAMES RATHER THAN INDEX #
     -REMOVE SELECTED CHARACTER (& COLOURED PAIR) FROM LIST OF SELECTABLE CHARACTERS
@@ -20,6 +20,7 @@ TODO:  (NOTE:  ##REL are things to be added to next release)
 #####STYLING##
 -Create Green & black gradient to match box cover
 ##REL-Add dark text for father/professor characters
+##REL-Add skull&crossbones image as googlefont doesn't show up on Android devices.
 -make responsive/test on tablets & phones
 -make responsive for phones
 */

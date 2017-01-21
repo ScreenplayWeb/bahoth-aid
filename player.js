@@ -1,12 +1,10 @@
 /**
- Betrayal at House on the Hill Player Aid v_1.2
- Created by Sean Doyle.
+ Betrayal at House on the Hill Player Aid (v_1.2 Jan 2017)  Created by Sean Doyle.
  This file contains the Player constructor function.
 
 NEW IN THIS VERSION:
     -Player constructor removed from characters.js.
     -implement use strict
-    -Passes JSLint (except for TODO comment)
 TODO:
 -
 */
@@ -26,7 +24,6 @@ function Player(playerName, charArrayIndex) {
         var myColour = this.myChar.ch_Colr;
         return myColour;
     };
-
     this.pl_getImg = function () {
         var myImage = this.myChar.ch_img;
         return myImage;
