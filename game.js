@@ -6,10 +6,10 @@ NEW:
     -in showCars function, remove inline styling and add class name to allow dark text for father/professor characters.
     -Add skull&crossbones icon as googlefont doesn't show up on Android devices.
     -Create Green & black gradient to match box cover
+    -ADD DISCLAIMER TEXT
 
 TODO:  (NOTE:  ##REL are things to be added to next release) 
 #####FUNCTIONALITY##
--ADD DISCLAIMER TEXT
 -ADD BIRTHDAY PROPERTY AND PUT THAT PLAYER FIRST IN THE ORDER (TO MATCH GAME RULE FOR STARTING ORDER)
 -ADD for in LOOP
 ##REL-REVIEW VARIABLES & SEE IF THEY'RE ALL USED.
