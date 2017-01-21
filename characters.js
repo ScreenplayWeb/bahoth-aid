@@ -147,9 +147,9 @@ function Character(name, photo, colour, MII, SPI, SAI, KNI){
         knoTrt.setAttribute("class", "traitName");
         knoTrt.textContent = "Knowledge";
         knoRow.appendChild(knoTrt);
-        knoTD = document.createElement("td");
-        knoTD.innerHTML = skullImage;
-        knoRow.appendChild(knoTD);
+        knoTD0 = document.createElement("td");
+        knoTD0.innerHTML = skullImage;
+        knoRow.appendChild(knoTD0);
 
         //CREATE <td> WITH TRAIT VALUES AND ADD TO ROW
         for (i = 0; i < this.tr_kno.length; i++) {

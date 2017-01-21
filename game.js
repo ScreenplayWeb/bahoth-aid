@@ -7,12 +7,12 @@ NEW:
     -Add skull&crossbones icon as googlefont doesn't show up on Android devices.
     -Create Green & black gradient to match box cover
     -ADD DISCLAIMER TEXT
+    -Remove unused variables
 
 TODO:  (NOTE:  ##REL are things to be added to next release) 
 #####FUNCTIONALITY##
 -ADD BIRTHDAY PROPERTY AND PUT THAT PLAYER FIRST IN THE ORDER (TO MATCH GAME RULE FOR STARTING ORDER)
 -ADD for in LOOP
-##REL-REVIEW VARIABLES & SEE IF THEY'RE ALL USED.
 
 #####STYLING##
 -make responsive/test on tablets & phones
@@ -20,24 +20,14 @@ TODO:  (NOTE:  ##REL are things to be added to next release)
 window.onload = function () {
     "use strict";
 //Game variables
-    var minPlayers = 1;
-    var maxPlayers = 6;
-    var numOfPlayers, numOfPlayersInt;
-    //var playrNumGot = false;//GET PLAYERS LOOP INITIALIZED TO FALSE
     var playerName, charPick;
     var playerArray = [];
     var playerHelpText = "Player Name?";
     var allTds; //ARRAY OF ALL <td> ELEMENTS
 
 //====Get elements====
-var p1SP = document.getElementById("p1Sp");
-var p1MI = document.getElementById("p1Mt");
-var p1SA = document.getElementById("p1Sn");
-var p1KW = document.getElementById("p1Kw");
-var p1Char = document.getElementById("p1Name");
 var plrDisplay = document.getElementById("playerTables");
 var plrForm = document.getElementById("PlayerForm");
-var plrFormBox = document.getElementById("formBox");
 var startBtn = document.getElementById("btnSub");
 var allTxtBs = document.getElementsByTagName("input");
 
@@ -55,9 +45,9 @@ for (var ib = 0; ib < allTxtBs.length; ib += 1){
     allTxtBs[ib].onblur = function(){
         var currentClass, charPair;
         //Reset helper text if empty
-        if(this.value == ""){
+        if (this.value == "") {
             this.value = playerHelpText;
-        }else{
+        } else {
             //Hide the other Name of same colour
             currentClass = this.parentElement.className;
             if(currentClass.length === 6){
@@ -69,9 +59,7 @@ for (var ib = 0; ib < allTxtBs.length; ib += 1){
                 }
             }
             
-        }
-        //Put focus on Start button.
-        //startBtn.focus();
+        }//end else
     }//END onblur anon function
 }
 
