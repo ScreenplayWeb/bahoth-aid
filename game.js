@@ -7,15 +7,14 @@ NEW:
     -implement use strict & clean up code
     -add skull & crossbones for attributes' 0 value
     -add link to BAHOTH on Avalon Hill website
+    -add check for zero players
 
 TODO:  (NOTE:  ##REL are things to be added to next release) 
 #####FUNCTIONALITY##
 -ADD DISCLAIMER TEXT
 -ADD BIRTHDAY PROPERTY AND PUT THAT PLAYER FIRST IN THE ORDER (TO MATCH GAME RULE FOR STARTING ORDER)
-##REL-HANDLE ERROR OF NO PLAYER NAMES ENTERED
 -ADD for in LOOP
--REVIEW VARIABLES & SEE IF THEY'RE ALL USED.
-##REL-CLEAN UP TABS & EXTRA SPACES - JSLINT?
+##REL-REVIEW VARIABLES & SEE IF THEY'RE ALL USED.
 
 #####STYLING##
 -Create Green & black gradient to match box cover
@@ -47,9 +46,6 @@ var plrForm = document.getElementById("PlayerForm");
 var plrFormBox = document.getElementById("formBox");
 var startBtn = document.getElementById("btnSub");
 var allTxtBs = document.getElementsByTagName("input");
-
-//========SET LISTENERS========
-startBtn.onclick = startGame;
 
 //Clear help text from text boxes on focus
 for (var ia = 0; ia < allTxtBs.length; ia += 1){
@@ -170,6 +166,22 @@ function setTDListenrs(){
 }//END setTdListenrs
 
 
+/*#### function startCheck
+ Make sure there is at least one player before starting the game.
+**/
+function startCheck(){
+    var playerCount = 0, i;
+    //check for names in text boxes
+    for (i = 0; i < allTxtBs.length; i++) {
+        if (allTxtBs[i].value !== "" && allTxtBs[i].value !== "Player Name?") {
+            playerCount++;
+        }
+    }
+
+    if (playerCount > 0) {
+        startGame();
+    }
+}
 /*#### function startGame
  Start the game.
 **/
@@ -186,5 +198,8 @@ function startGame(){
     //Set onclick listeners for attributes.
     setTDListenrs();
 }//END startGame
+
+//========SET LISTENERS========
+startBtn.onclick = startCheck;
 
 };//END onload FUNCTION
