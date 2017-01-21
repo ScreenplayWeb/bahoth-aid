@@ -5,6 +5,7 @@ NEW:
     -add check for zero players
     -in showCars function, remove inline styling and add class name to allow dark text for father/professor characters.
     -Add skull&crossbones icon as googlefont doesn't show up on Android devices.
+    -Create Green & black gradient to match box cover
 
 TODO:  (NOTE:  ##REL are things to be added to next release) 
 #####FUNCTIONALITY##
@@ -14,7 +15,6 @@ TODO:  (NOTE:  ##REL are things to be added to next release)
 ##REL-REVIEW VARIABLES & SEE IF THEY'RE ALL USED.
 
 #####STYLING##
--Create Green & black gradient to match box cover
 -make responsive/test on tablets & phones
 */
 window.onload = function () {

@@ -5,6 +5,12 @@
 */
 body{
 	font-size: 12px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#293430+0,293430+0,225d49+17,293430+44,293430+44,51876f+75,225d49+91,225d49+99,225d49+99 */
+background: rgb(41,52,48); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(41,52,48,1) 0%, rgba(41,52,48,1) 0%, rgba(34,93,73,1) 17%, rgba(41,52,48,1) 44%, rgba(41,52,48,1) 44%, rgba(81,135,111,1) 75%, rgba(34,93,73,1) 91%, rgba(34,93,73,1) 99%, rgba(34,93,73,1) 99%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgba(41,52,48,1) 0%,rgba(41,52,48,1) 0%,rgba(34,93,73,1) 17%,rgba(41,52,48,1) 44%,rgba(41,52,48,1) 44%,rgba(81,135,111,1) 75%,rgba(34,93,73,1) 91%,rgba(34,93,73,1) 99%,rgba(34,93,73,1) 99%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgba(41,52,48,1) 0%,rgba(41,52,48,1) 0%,rgba(34,93,73,1) 17%,rgba(41,52,48,1) 44%,rgba(41,52,48,1) 44%,rgba(81,135,111,1) 75%,rgba(34,93,73,1) 91%,rgba(34,93,73,1) 99%,rgba(34,93,73,1) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#293430', endColorstr='#225d49',GradientType=1 ); /* IE6-9 */
 }
 h1,h2,h3{
 	margin: 0 auto;
@@ -119,6 +125,7 @@ img .img2{
 	border: 2px solid #000000;
 	border-radius: 10px;
 	background: #400000;
+    box-shadow: 0px 0px 15px 4px #FBF935;
 }
 .charBox2{
 	width: 100px;
@@ -238,7 +245,7 @@ tr td {
 #btnSub{
 	float: right;
 }
-
+footer, footer a {color: white;}
 /**** CHARACTER STYLING ****/
 /*2nd class is added when character is selected by player.*/
 .ch_red, .ch_redSet{background: #e2222d; color: #EEEEEE;}
