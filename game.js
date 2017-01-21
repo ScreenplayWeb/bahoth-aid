@@ -4,6 +4,7 @@ NEW:
     -add link to BAHOTH on Avalon Hill website
     -add check for zero players
     -in showCars function, remove inline styling and add class name to allow dark text for father/professor characters.
+    -Add skull&crossbones icon as googlefont doesn't show up on Android devices.
 
 TODO:  (NOTE:  ##REL are things to be added to next release) 
 #####FUNCTIONALITY##
@@ -14,9 +15,7 @@ TODO:  (NOTE:  ##REL are things to be added to next release)
 
 #####STYLING##
 -Create Green & black gradient to match box cover
-##REL-Add skull&crossbones image as googlefont doesn't show up on Android devices.
 -make responsive/test on tablets & phones
--make responsive for phones
 */
 window.onload = function () {
     "use strict";

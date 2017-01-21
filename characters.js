@@ -13,6 +13,7 @@
 
 /**########## CHARACTER CONSTRUCTOR FUNCTION ##########**/
 function Character(name, photo, colour, MII, SPI, SAI, KNI){
+    var skullImage = "<img src='images/skull-crossed-bones.png' width='20' height='20' alt='Death image'/>";
     this.ch_name = name;
     this.ch_img = photo;
     this.ch_Colr = colour;
@@ -39,7 +40,7 @@ function Character(name, photo, colour, MII, SPI, SAI, KNI){
         mitTrt.textContent = "Might";
         mitRow.appendChild(mitTrt);
         mitTD0 = document.createElement("td");
-        mitTD0.innerHTML = "&#9760;";
+        mitTD0.innerHTML = skullImage;
         mitRow.appendChild(mitTD0);
 
         //CREATE <td> WITH TRAIT VALUES AND ADD TO ROW
@@ -75,7 +76,7 @@ function Character(name, photo, colour, MII, SPI, SAI, KNI){
         spdTrt.textContent = "Speed";
         spdRow.appendChild(spdTrt);
         spdTD0 = document.createElement("td");
-        spdTD0.innerHTML = "&#9760;";
+        spdTD0.innerHTML = skullImage;
         spdRow.appendChild(spdTD0);
 
         //CREATE <td> WITH TRAIT VALUES AND ADD TO ROW
@@ -111,7 +112,7 @@ function Character(name, photo, colour, MII, SPI, SAI, KNI){
         sanTrt.textContent = "Sanity";
         sanRow.appendChild(sanTrt);
         sanTD0 = document.createElement("td");
-        sanTD0.innerHTML = "&#9760;";
+        sanTD0.innerHTML = skullImage;
         sanRow.appendChild(sanTD0);
 
         //CREATE <td> WITH TRAIT VALUES AND ADD TO ROW
@@ -147,7 +148,7 @@ function Character(name, photo, colour, MII, SPI, SAI, KNI){
         knoTrt.textContent = "Knowledge";
         knoRow.appendChild(knoTrt);
         knoTD = document.createElement("td");
-        knoTD.innerHTML = "&#9760;";
+        knoTD.innerHTML = skullImage;
         knoRow.appendChild(knoTD);
 
         //CREATE <td> WITH TRAIT VALUES AND ADD TO ROW
