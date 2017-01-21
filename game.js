@@ -6,11 +6,11 @@ NEW:
     -ADDED ANIMATION WHEN TRAIT VALUES CHANGE
     -implement use strict & clean up code
     -add skull & crossbones for attributes' 0 value
+    -add link to BAHOTH on Avalon Hill website
 
 TODO:  (NOTE:  ##REL are things to be added to next release) 
 #####FUNCTIONALITY##
 -ADD DISCLAIMER TEXT
--LINK LOGO TO FORSALE ON AMAZON OR WOTC WEBSITE
 -ADD BIRTHDAY PROPERTY AND PUT THAT PLAYER FIRST IN THE ORDER (TO MATCH GAME RULE FOR STARTING ORDER)
 ##REL-HANDLE ERROR OF NO PLAYER NAMES ENTERED
 -ADD for in LOOP

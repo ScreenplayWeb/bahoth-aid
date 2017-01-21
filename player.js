@@ -5,8 +5,6 @@
 NEW IN THIS VERSION:
     -Player constructor removed from characters.js.
     -implement use strict
-TODO:
--
 */
 /**#### PLAYER OBJECT CONSTRUCTOR FUNCTION ####
 *PARAMS:
