@@ -1,13 +1,9 @@
 /**
 Betrayal at House on the Hill Player Aid (v_1.2 Jan 2017)  Created by Sean Doyle.
 NEW:
-    -DISPLAY LIST OF CHARACTER NAMES RATHER THAN INDEX #
-    -REMOVE SELECTED CHARACTER (& COLOURED PAIR) FROM LIST OF SELECTABLE CHARACTERS
-    -ADDED ANIMATION WHEN TRAIT VALUES CHANGE
-    -implement use strict & clean up code
-    -add skull & crossbones for attributes' 0 value
     -add link to BAHOTH on Avalon Hill website
     -add check for zero players
+    -in showCars function, remove inline styling and add class name to allow dark text for father/professor characters.
 
 TODO:  (NOTE:  ##REL are things to be added to next release) 
 #####FUNCTIONALITY##
@@ -18,7 +14,6 @@ TODO:  (NOTE:  ##REL are things to be added to next release)
 
 #####STYLING##
 -Create Green & black gradient to match box cover
-##REL-Add dark text for father/professor characters
 ##REL-Add skull&crossbones image as googlefont doesn't show up on Android devices.
 -make responsive/test on tablets & phones
 -make responsive for phones
@@ -115,8 +110,8 @@ function changeTraitValue(){
         var playerChar, j;
         for(j = 0; j < playerArray.length; j++) {
             playerChar = characterArray[playerArray[j].pl_charIndx];
-            
-            plrDisplay.innerHTML += "<div class='playerBox2'><div class='charBox2' style='background: #" + playerArray[j].pl_getColr() + "'><h2 style='background: #" + playerArray[j].pl_getColr() + "'>" + playerArray[j].pl_name.toUpperCase() + "</h2><img src='images/" + playerArray[j].pl_getImg() + ".png' width='100' alt='My Character Image' /><p style='background: #" + playerArray[j].pl_getColr() + "'>" + playerArray[j].pl_getCharName() + "</p></div><div class='traitBox'><table id='tbl" + j +"'></table></div></div>";
+
+            plrDisplay.innerHTML += "<div class='playerBox2'><div class='charBox2 " + playerArray[j].pl_getColr() + "'><h2>" + playerArray[j].pl_name.toUpperCase() + "</h2><img src='images/" + playerArray[j].pl_getImg() + ".png' width='100' alt='My Character Image' /><p>" + playerArray[j].pl_getCharName() + "</p></div><div class='traitBox'><table id='tbl" + j +"'></table></div></div>";
             
             //DISPLAY TRAIT ROWS
             playerChar.shoMit(j);
