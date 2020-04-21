@@ -1,5 +1,5 @@
 /**
-Betrayal at House on the Hill Player Aid (v_1.1.1 Feb 9)  Created by Sean Doyle.
+Betrayal at House on the Hill Player Aid (v_1.2.0 Apr 2020)  Created by Sean Doyle.
 NEW:
     -DISPLAY LIST OF CHARACTER NAMES RATHER THAN INDEX #
     -REMOVE SELECTED CHARACTER (& COLOURED PAIR) FROM LIST OF SELECTABLE CHARACTERS

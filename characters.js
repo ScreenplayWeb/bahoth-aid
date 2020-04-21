@@ -1,5 +1,5 @@
 /**
- Betrayal at House on the Hill Player Aid v_1.2
+ Betrayal at House on the Hill Player Aid v_1.2 April 2020
  Created by Sean Doyle.
  This file contains the Character constructor function, character trait values, and the full array of characters.
 
