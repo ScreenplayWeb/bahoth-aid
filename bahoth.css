@@ -1,18 +1,29 @@
 @charset "utf-8";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-/*BETRAYAL @ HOUSE ON THE HILL AID VERSION 1.2.0
--This version:  Rounded corners for Character boxes.
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@800&display=swap');
+/*BETRAYAL @ HOUSE ON THE HILL AID VERSION 1.2
+
 */
 body{
 	font-size: 12px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#293430+0,293430+0,225d49+17,293430+44,293430+44,51876f+75,225d49+91,225d49+99,225d49+99 */
+background: rgb(41,52,48); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(41,52,48,1) 0%, rgba(41,52,48,1) 0%, rgba(34,93,73,1) 17%, rgba(41,52,48,1) 44%, rgba(41,52,48,1) 44%, rgba(81,135,111,1) 75%, rgba(34,93,73,1) 91%, rgba(34,93,73,1) 99%, rgba(34,93,73,1) 99%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgba(41,52,48,1) 0%,rgba(41,52,48,1) 0%,rgba(34,93,73,1) 17%,rgba(41,52,48,1) 44%,rgba(41,52,48,1) 44%,rgba(81,135,111,1) 75%,rgba(34,93,73,1) 91%,rgba(34,93,73,1) 99%,rgba(34,93,73,1) 99%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgba(41,52,48,1) 0%,rgba(41,52,48,1) 0%,rgba(34,93,73,1) 17%,rgba(41,52,48,1) 44%,rgba(41,52,48,1) 44%,rgba(81,135,111,1) 75%,rgba(34,93,73,1) 91%,rgba(34,93,73,1) 99%,rgba(34,93,73,1) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#293430', endColorstr='#225d49',GradientType=1 ); /* IE6-9 */
 }
 h1,h2,h3{
 	margin: 0 auto;
 	padding: 3px 5px;
 	text-align: center;
 	overflow: hidden;
-	color: #EEEEEE;
 	width: 90px;
+}
+h1{
+    color: #f8ee56;
+	font-family: 'Grenze Gotisch', cursive;
+	font-size: 2.5em;
 }
 h2{
 	height: 22px;
@@ -46,7 +57,7 @@ button{
 	margin: 0 auto;
 	max-width: 1020px;
 	background: #969292;
-	padding: 20px 0;	
+	padding: 20px 0;
 }
 
 .playerBox{
@@ -73,15 +84,11 @@ button{
 	width: 248px;
 	height: 100px;
 	position: relative;
-	/* left: 105px; */
 }
 .traitMntl{
 	float: left;
 	width: 248px;
 	height: 100px;
-	/* position: relative;
-	right: 0; */
-	
 }
 .traitTop{
 	margin: 0;
@@ -105,19 +112,15 @@ button{
 	height: 41px;
 	color: white;
 	padding: 4px;
-
-background: black;
+	background: black;
 }
-
 
 img .img2{
 	display: block;
 	border: none;
-
 }
 .playerBox2{
 	width: 600px;
-	/* height: 150px; */
 	min-width: 600px;
 	padding: 4px 0;
 	margin: 0 auto;
@@ -125,6 +128,7 @@ img .img2{
 	border: 2px solid #000000;
 	border-radius: 10px;
 	background: #400000;
+    box-shadow: 0px 0px 15px 4px #FBF935;
 }
 .charBox2{
 	width: 100px;
@@ -139,7 +143,7 @@ img .img2{
 }
 .charBox2 p{
 	overflow: hidden;
-	color: #EEEEEE;
+	/* color: #EEEEEE; */
 	font-size: 12px;
 	text-align: center;
 	padding: 0 3px;
@@ -147,10 +151,10 @@ img .img2{
 }
 .charBox2 h2{
     border-radius: 10px 0 0 0;
+    /* color: #EEEEEE; */
 }
 .traitBox{
 	width: 491px;
-	/* background: yellow; */
 	float: right;
 	padding-right: 3px;
 }
@@ -161,15 +165,12 @@ table{
 	text-align: center;
 	color: #A4A4A4;
 	text-shadow: 1px 1px 1px black;
-	/* background-color: #D0D9E2; */
-
 }
 td{
 	margin: 0;
 	padding: 0;
 	width: 60px;
 	height: 40px;
-	/* background: purple; */
 	text-align: center;
 	font-size: 18px;
 	border-top: 1px solid #e0e0e1;
@@ -178,11 +179,9 @@ td{
 	border-left: 1px solid #dfdfe0;
 }
 tr{
-	background: #113; 
-	/* border-top: 1px solid green;*/
+	background: #113;
 }
 .altRow{
-	/* background-color: #c0c8d2; */
 	background-color: #424251;
 }
 .traitName{
@@ -192,15 +191,14 @@ tr{
 	text-shadow: none;
 	font-size: 1.75em;
 	color: #FF0000;
-	/* background: #c0c8d2; */
 }
 .TR_default{
 	color: green;
 	font-weight: bold;
 }
 tr td {
-    background: #400000;
-    transition: background 2s;
+	background: #400000;
+	transition: background 2s;
 }
 .TR_actv{
 	background-color: #FF0000;
@@ -211,7 +209,6 @@ tr td {
 /****======== PLAYER FORM ========****/
 #PlayerForm{background: purple;
 	width: 600px;
-	/* height: 150px; */
 	min-width: 600px;
 	padding: 4px 0;
 	margin: 0 auto;
@@ -251,12 +248,12 @@ tr td {
 #btnSub{
 	float: right;
 }
-
+footer, footer a {color: white;}
 /**** CHARACTER STYLING ****/
 /*2nd class is added when character is selected by player.*/
-.ch_red, .ch_redSet{background: #e2222d;}
-.ch_grn,.ch_grnSet{background: #22a148;}
-.ch_orn, .ch_ornSet{background: #efac1f;}
-.ch_gry, .ch_grySet{background: #e5e3e6;color:#000000!IMPORTANT;}
-.ch_pnk, .ch_pnkSet{background: #f750d9;}
-.ch_blu, .ch_bluSet{background: #134690;}
+.ch_red, .ch_redSet{background: #e2222d; color: #EEEEEE;}
+.ch_grn, .ch_grnSet{background: #22a148; color: #EEEEEE;}
+.ch_orn, .ch_ornSet{background: #efac1f; color: #EEEEEE;}
+.ch_gry, .ch_grySet{background: #e5e3e6; color:#000000!IMPORTANT;}
+.ch_pnk, .ch_pnkSet{background: #f750d9; color: #EEEEEE;}
+.ch_blu, .ch_bluSet{background: #134690; color: #EEEEEE;}
