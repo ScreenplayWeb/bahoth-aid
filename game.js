@@ -1,54 +1,35 @@
 /**
-Betrayal at House on the Hill Player Aid (v_1.2.0 Apr 2020)  Created by Sean Doyle.
+Betrayal at House on the Hill Player Aid (v_1.2 Jan 2017)  Created by Sean Doyle.
 NEW:
-    -DISPLAY LIST OF CHARACTER NAMES RATHER THAN INDEX #
-    -REMOVE SELECTED CHARACTER (& COLOURED PAIR) FROM LIST OF SELECTABLE CHARACTERS
-    -ADDED ANIMATION WHEN TRAIT VALUES CHANGE
-    -implement use strict & clean up code
-    -add skull & crossbones for attributes' 0 value
+    -add link to BAHOTH on Avalon Hill website
+    -add check for zero players
+    -in showCars function, remove inline styling and add class name to allow dark text for father/professor characters.
+    -Add skull&crossbones icon as googlefont doesn't show up on Android devices.
+    -Create Green & black gradient to match box cover
+    -ADD DISCLAIMER TEXT
+    -Remove unused variables
 
 TODO:  (NOTE:  ##REL are things to be added to next release) 
 #####FUNCTIONALITY##
--ADD DISCLAIMER TEXT
--LINK LOGO TO FORSALE ON AMAZON OR WOTC WEBSITE
 -ADD BIRTHDAY PROPERTY AND PUT THAT PLAYER FIRST IN THE ORDER (TO MATCH GAME RULE FOR STARTING ORDER)
-##REL-HANDLE ERROR OF NO PLAYER NAMES ENTERED
 -ADD for in LOOP
--REVIEW VARIABLES & SEE IF THEY'RE ALL USED.
-##REL-CLEAN UP TABS & EXTRA SPACES - JSLINT?
 
 #####STYLING##
--Create Green & black gradient to match box cover
-##REL-Add dark text for father/professor characters
 -make responsive/test on tablets & phones
--make responsive for phones
 */
 window.onload = function () {
     "use strict";
 //Game variables
-    var minPlayers = 1;
-    var maxPlayers = 6;
-    var numOfPlayers, numOfPlayersInt;
-    //var playrNumGot = false;//GET PLAYERS LOOP INITIALIZED TO FALSE
     var playerName, charPick;
     var playerArray = [];
     var playerHelpText = "Player Name?";
     var allTds; //ARRAY OF ALL <td> ELEMENTS
 
 //====Get elements====
-var p1SP = document.getElementById("p1Sp");
-var p1MI = document.getElementById("p1Mt");
-var p1SA = document.getElementById("p1Sn");
-var p1KW = document.getElementById("p1Kw");
-var p1Char = document.getElementById("p1Name");
 var plrDisplay = document.getElementById("playerTables");
 var plrForm = document.getElementById("PlayerForm");
-var plrFormBox = document.getElementById("formBox");
 var startBtn = document.getElementById("btnSub");
 var allTxtBs = document.getElementsByTagName("input");
-
-//========SET LISTENERS========
-startBtn.onclick = startGame;
 
 //Clear help text from text boxes on focus
 for (var ia = 0; ia < allTxtBs.length; ia += 1){
@@ -64,9 +45,9 @@ for (var ib = 0; ib < allTxtBs.length; ib += 1){
     allTxtBs[ib].onblur = function(){
         var currentClass, charPair;
         //Reset helper text if empty
-        if(this.value == ""){
+        if (this.value == "") {
             this.value = playerHelpText;
-        }else{
+        } else {
             //Hide the other Name of same colour
             currentClass = this.parentElement.className;
             if(currentClass.length === 6){
@@ -78,9 +59,7 @@ for (var ib = 0; ib < allTxtBs.length; ib += 1){
                 }
             }
             
-        }
-        //Put focus on Start button.
-        //startBtn.focus();
+        }//end else
     }//END onblur anon function
 }
 
@@ -118,12 +97,12 @@ function changeTraitValue(){
         var playerChar, j;
         for(j = 0; j < playerArray.length; j++) {
             playerChar = characterArray[playerArray[j].pl_charIndx];
-            
-            plrDisplay.innerHTML += "<div class='playerBox2'><div class='charBox2' style='background: #" + playerArray[j].pl_getColr() + "'><h2 style='background: #" + playerArray[j].pl_getColr() + "'>" + playerArray[j].pl_name.toUpperCase() + "</h2><img src='images/" + playerArray[j].pl_getImg() + ".png' width='100' alt='My Character Image' /><p style='background: #" + playerArray[j].pl_getColr() + "'>" + playerArray[j].pl_getCharName() + "</p></div><div class='traitBox'><table id='tbl" + j +"'></table></div></div>";
+
+            plrDisplay.innerHTML += "<div class='playerBox2'><div class='charBox2 " + playerArray[j].pl_getColr() + "'><h2>" + playerArray[j].pl_name.toUpperCase() + "</h2><img src='images/" + playerArray[j].pl_getImg() + ".png' width='100' alt='My Character Image' /><p>" + playerArray[j].pl_getCharName() + "</p></div><div class='traitBox'><table id='tbl" + j +"'></table></div></div>";
             
             //DISPLAY TRAIT ROWS
+            playerChar.shoMit(j);
             playerChar.shoSpd(j);
-			playerChar.shoMit(j);
             playerChar.shoSan(j);
             playerChar.shoKno(j);
         }
@@ -169,6 +148,22 @@ function setTDListenrs(){
 }//END setTdListenrs
 
 
+/*#### function startCheck
+ Make sure there is at least one player before starting the game.
+**/
+function startCheck(){
+    var playerCount = 0, i;
+    //check for names in text boxes
+    for (i = 0; i < allTxtBs.length; i++) {
+        if (allTxtBs[i].value !== "" && allTxtBs[i].value !== "Player Name?") {
+            playerCount++;
+        }
+    }
+
+    if (playerCount > 0) {
+        startGame();
+    }
+}
 /*#### function startGame
  Start the game.
 **/
@@ -185,5 +180,8 @@ function startGame(){
     //Set onclick listeners for attributes.
     setTDListenrs();
 }//END startGame
+
+//========SET LISTENERS========
+startBtn.onclick = startCheck;
 
 };//END onload FUNCTION

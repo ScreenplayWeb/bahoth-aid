@@ -1,6 +1,5 @@
 /**
- Betrayal at House on the Hill Player Aid v_1.2 April 2020
- Created by Sean Doyle.
+ Betrayal at House on the Hill Player Aid (v_1.2 Jan 2017)  Created by Sean Doyle.
  This file contains the Character constructor function, character trait values, and the full array of characters.
 
  NEW IN THIS VERSION:
@@ -8,26 +7,63 @@
     -Remove 0 attribute values from character trait arrays.
     -Hardcode Skull & crossbones as 0 value attribute.
     -implement use strict & clean up code
+    -Remove "use strict"
+    -Replace hexcode with class name for colour property.
 */
 
 /**########## CHARACTER CONSTRUCTOR FUNCTION ##########**/
-function Character(name, photo, colour, SPI, MII, SAI, KNI){
-    "use strict";
+function Character(name, photo, colour, MII, SPI, SAI, KNI){
+    var skullImage = "<img src='images/skull-crossed-bones.png' width='20' height='20' alt='Death image'/>";
     this.ch_name = name;
     this.ch_img = photo;
     this.ch_Colr = colour;
 //TRAIT VALUE ARRAY STARTING INDICES
-    this.spdIndx = SPI;
     this.mitIndx = MII;
+    this.spdIndx = SPI;
     this.sanIndx = SAI;
     this.knoIndx = KNI;
 //TRAIT VALUE ARRAYS
+    this.tr_mit = [];
     this.tr_spd = [];
-	this.tr_mit = [];
     this.tr_san = [];
     this.tr_kno = [];
 //DISPLAY TRAITS
-	//SPEED
+    //MIGHT
+    this.shoMit = function(tableIndex){
+        var tblId = "tbl" + tableIndex;
+        var thisTbl, mitRow, mitTrt, mitTD0, mitTD, i;
+        //GET TABLE AND CREATE ROW WITH TRAIT NAME
+        thisTbl = document.getElementById(tblId);
+        mitRow = document.createElement("tr");
+        mitTrt = document.createElement("td");
+        mitTrt.setAttribute("class", "traitName");
+        mitTrt.textContent = "Might";
+        mitRow.appendChild(mitTrt);
+        mitTD0 = document.createElement("td");
+        mitTD0.innerHTML = skullImage;
+        mitRow.appendChild(mitTD0);
+
+        //CREATE <td> WITH TRAIT VALUES AND ADD TO ROW
+        for (i = 0; i < this.tr_mit.length; i++) {
+            //CHECK IF DEFAULT AND ADD CLASS IF SO
+            if (i == this.mitIndx) {
+                mitTD = document.createElement("td");
+                mitTD.setAttribute("name", this.ch_img + "Mit");
+                mitTD.setAttribute("class", "TR_default TR_actv");
+                mitTD.textContent = this.tr_mit[i];
+                mitRow.appendChild(mitTD);
+            } else {
+                mitTD = document.createElement("td");
+                mitTD.setAttribute("name", this.ch_img + "Mit");
+                mitTD.textContent = this.tr_mit[i];
+                mitRow.appendChild(mitTD);
+            }
+        }
+        //ADD MIGHT ROW TO TABLE
+        thisTbl.appendChild(mitRow);
+    };
+
+    //SPEED
     this.shoSpd = function(tableIndex){
         var tblId = "tbl" + tableIndex;
         var thisTbl, spdRow, spdTrt, spdTD0, spdTD;
@@ -40,7 +76,7 @@ function Character(name, photo, colour, SPI, MII, SAI, KNI){
         spdTrt.textContent = "Speed";
         spdRow.appendChild(spdTrt);
         spdTD0 = document.createElement("td");
-        spdTD0.innerHTML = "&#9760;";
+        spdTD0.innerHTML = skullImage;
         spdRow.appendChild(spdTD0);
 
         //CREATE <td> WITH TRAIT VALUES AND ADD TO ROW
@@ -62,41 +98,6 @@ function Character(name, photo, colour, SPI, MII, SAI, KNI){
         //ADD SPEED ROW TO TABLE
         thisTbl.appendChild(spdRow);
     };
-	
-    //MIGHT
-    this.shoMit = function(tableIndex){
-        var tblId = "tbl" + tableIndex;
-        var thisTbl, mitRow, mitTrt, mitTD0, mitTD;
-        //GET TABLE AND CREATE ROW WITH TRAIT NAME
-        thisTbl = document.getElementById(tblId);
-        mitRow = document.createElement("tr");
-        mitTrt = document.createElement("td");
-        mitTrt.setAttribute("class", "traitName");
-        mitTrt.textContent = "Might";
-        mitRow.appendChild(mitTrt);
-        mitTD0 = document.createElement("td");
-        mitTD0.innerHTML = "&#9760;";
-        mitRow.appendChild(mitTD0);
-
-        //CREATE <td> WITH TRAIT VALUES AND ADD TO ROW
-        for(var i = 0; i < this.tr_mit.length; i++){
-            //CHECK IF DEFAULT AND ADD CLASS IF SO
-            if(i == this.mitIndx){
-                mitTD = document.createElement("td");
-                mitTD.setAttribute("name", this.ch_img + "Mit");
-                mitTD.setAttribute("class", "TR_default TR_actv");
-                mitTD.textContent = this.tr_mit[i];
-                mitRow.appendChild(mitTD);
-            }else{
-                mitTD = document.createElement("td");
-                mitTD.setAttribute("name", this.ch_img + "Mit");
-                mitTD.textContent = this.tr_mit[i];
-                mitRow.appendChild(mitTD);
-            }
-        }
-        //ADD MIGHT ROW TO TABLE
-        thisTbl.appendChild(mitRow);
-    };
 
     //SANITY
     this.shoSan = function(tableIndex){
@@ -111,19 +112,19 @@ function Character(name, photo, colour, SPI, MII, SAI, KNI){
         sanTrt.textContent = "Sanity";
         sanRow.appendChild(sanTrt);
         sanTD0 = document.createElement("td");
-        sanTD0.innerHTML = "&#9760;";
+        sanTD0.innerHTML = skullImage;
         sanRow.appendChild(sanTD0);
 
         //CREATE <td> WITH TRAIT VALUES AND ADD TO ROW
-        for(var i = 0; i < this.tr_san.length; i++){
+        for (var i = 0; i < this.tr_san.length; i++) {
             //CHECK IF DEFAULT AND ADD CLASS IF SO
-            if(i == this.sanIndx){
+            if (i == this.sanIndx) {
                 sanTD = document.createElement("td");
                 sanTD.setAttribute("name", this.ch_img + "San");
                 sanTD.setAttribute("class", "TR_default TR_actv");
                 sanTD.textContent = this.tr_san[i];
                 sanRow.appendChild(sanTD);
-            }else{
+            } else {
                 sanTD = document.createElement("td");
                 sanTD.setAttribute("name", this.ch_img + "San");
                 sanTD.textContent = this.tr_san[i];
@@ -137,7 +138,7 @@ function Character(name, photo, colour, SPI, MII, SAI, KNI){
     //KNOWLEDGE
     this.shoKno = function(tableIndex){
         var tblId = "tbl" + tableIndex;
-        var thisTbl, knoRow, knoTrt, knoTD0, knoTD;
+        var thisTbl, knoRow, knoTrt, knoTD0, knoTD, i;
 
         //GET TABLE AND CREATE ROW WITH TRAIT NAME
         thisTbl = document.getElementById(tblId);
@@ -146,20 +147,20 @@ function Character(name, photo, colour, SPI, MII, SAI, KNI){
         knoTrt.setAttribute("class", "traitName");
         knoTrt.textContent = "Knowledge";
         knoRow.appendChild(knoTrt);
-        knoTD = document.createElement("td");
-        knoTD.innerHTML = "&#9760;";
-        knoRow.appendChild(knoTD);
+        knoTD0 = document.createElement("td");
+        knoTD0.innerHTML = skullImage;
+        knoRow.appendChild(knoTD0);
 
         //CREATE <td> WITH TRAIT VALUES AND ADD TO ROW
-        for(var i = 0; i < this.tr_kno.length; i++){
+        for (i = 0; i < this.tr_kno.length; i++) {
             //CHECK IF DEFAULT AND ADD CLASS IF SO
-            if(i == this.knoIndx){
+            if (i == this.knoIndx) {
                 knoTD = document.createElement("td");
                 knoTD.setAttribute("name", this.ch_img + "Kno");
                 knoTD.setAttribute("class", "TR_default TR_actv");
                 knoTD.textContent = this.tr_kno[i];
                 knoRow.appendChild(knoTD);
-            }else{
+            } else {
                 knoTD = document.createElement("td");
                 knoTD.setAttribute("name", this.ch_img + "Kno");
                 knoTD.textContent = this.tr_kno[i];
@@ -186,77 +187,77 @@ function Character(name, photo, colour, SPI, MII, SAI, KNI){
 }//END CHARACTER CONSTRUCTOR
 
 
-//BUILD CHARACTERS WITH CONSTRUCTOR FUNCTION & ADD TRAIT VALUE ARRAYS WITH INDEX OF STARTING VALUES.
-//var x = new Character( name,      photo,  colour,SPI,MII,SAI,KNI);
-var ox = new Character("Ox Bellows", "ox", "e2222d", 4, 2, 2, 2);
-ox.tr_spd = [2,2,2,3,4,5,5,6];
+//BUILD CHARACTERS WITH CONSTRUCTOR FUNCTION & ADD TRAIT VALUE ARRAYS
+//var x = new Character( name,      photo,  colour,MII,SPI,SAI,KNI);
+var ox = new Character("Ox Bellows", "ox", "ch_red", 3, 5, 3, 3);
 ox.tr_mit = [4,5,5,6,6,7,8,8];
+ox.tr_spd = [2,2,2,3,4,5,5,6];
 ox.tr_san = [2,2,3,4,5,5,6,7];
 ox.tr_kno = [2,2,3,3,5,5,6,6];
 
-var darrin = new Character('Darrin "Flash" Williams', "darrin", "e2222d",4,2,2,2);
-darrin.tr_spd = [4,4,4,5,6,7,7,8];
+var darrin = new Character('Darrin "Flash" Williams', "darrin", "ch_red",3,5,3,3);
 darrin.tr_mit = [2,3,3,4,5,6,6,7];
+darrin.tr_spd = [4,4,4,5,6,7,7,8];
 darrin.tr_san = [1,2,3,4,5,5,5,7];
 darrin.tr_kno = [2,3,3,4,5,5,5,7];
 
-var brandon = new Character("Brandon Jaspers", "brandon", "22a148",2,3,3,2);
-brandon.tr_spd = [3,4,4,4,5,6,7,8];
+var brandon = new Character("Brandon Jaspers", "brandon", "ch_grn",4,3,4,3);
 brandon.tr_mit = [2,3,3,4,5,6,6,7];
+brandon.tr_spd = [3,4,4,4,5,6,7,8];
 brandon.tr_san = [3,3,3,4,5,6,7,8];
 brandon.tr_kno = [1,3,3,5,5,6,6,7];
 
-var peter = new Character("Peter Akimoto", "peter", "22a148",3,2,3,2);
-peter.tr_spd = [3,3,3,4,6,6,7,7];
+var peter = new Character("Peter Akimoto", "peter", "ch_grn",3,4,4,3);
 peter.tr_mit = [2,3,3,4,5,5,6,8];
+peter.tr_spd = [3,3,3,4,6,6,7,7];
 peter.tr_san = [3,4,4,4,5,6,6,7];
 peter.tr_kno = [3,4,4,5,6,7,7,8];
 
-var zoe = new Character("Zoe Ingstrom", "zoe", "efac1f",3,3,2,2);
-zoe.tr_spd = [4,4,4,4,5,6,8,8];
+var zoe = new Character("Zoe Ingstrom", "zoe", "ch_orn",4,4,3,3);
 zoe.tr_mit = [2,2,3,3,4,4,6,7];
+zoe.tr_spd = [4,4,4,4,5,6,8,8];
 zoe.tr_san = [3,4,5,5,6,6,7,8];
 zoe.tr_kno = [1,2,3,4,4,5,5,5];
 
-var missy = new Character("Missy Dubourde", "missy", "efac1f",2,3,2,3);
-missy.tr_spd = [3,4,5,6,6,6,7,7];
+var missy = new Character("Missy Dubourde", "missy", "ch_orn",4,3,3,4);
 missy.tr_mit = [2,3,3,3,4,5,6,7];
+missy.tr_spd = [3,4,5,6,6,6,7,7];
 missy.tr_san = [1,2,3,4,5,5,6,7];
 missy.tr_kno = [2,3,4,4,5,6,6,6];
 
-var father = new Character("Father Rhinehardt", "father", "e5e3e6",2,2,4,3);
-father.tr_spd = [2,3,3,4,5,6,7,7];
+var father = new Character("Father Rhinehardt", "father", "ch_gry",3,3,5,4);
 father.tr_mit = [1,2,2,4,4,5,5,7];
+father.tr_spd = [2,3,3,4,5,6,7,7];
 father.tr_san = [3,4,5,5,6,7,7,8];
 father.tr_kno = [1,3,3,4,5,6,6,8];
 
-var professor = new Character("Professor Longfellow", "professor", "e5e3e6",3,2,2,4);
-professor.tr_spd = [2,2,4,4,5,5,6,6];
+var professor = new Character("Professor Longfellow", "professor", "ch_gry",3,4,3,5);
 professor.tr_mit = [1,2,3,4,5,5,6,6];
+professor.tr_spd = [2,2,4,4,5,5,6,6];
 professor.tr_san = [1,3,3,4,5,5,6,7];
 professor.tr_kno = [4,5,5,5,5,6,7,8];
 
-var heather = new Character("Heather Granville", "heather", "f750d9",2,2,2,4);
-heather.tr_spd = [3,3,4,5,6,6,7,8];
+var heather = new Character("Heather Granville", "heather", "ch_pnk",3,3,3,5);
 heather.tr_mit = [3,3,3,4,5,6,7,8];
+heather.tr_spd = [3,3,4,5,6,6,7,8];
 heather.tr_san = [3,3,3,4,5,6,6,6];
 heather.tr_kno = [2,3,3,4,5,6,7,8];
 
-var jenny = new Character("Jenny LeClerc", "jenny", "f750d9",3,2,4,2);
-jenny.tr_spd = [2,3,4,4,4,5,6,8];
+var jenny = new Character("Jenny LeClerc", "jenny", "ch_pnk",3,4,5,3);
 jenny.tr_mit = [3,4,4,4,4,5,6,8];
+jenny.tr_spd = [2,3,4,4,4,5,6,8];
 jenny.tr_san = [1,1,2,4,4,4,5,6];
 jenny.tr_kno = [2,3,3,4,4,5,6,8];
 
-var vivian = new Character("Vivian Lopez", "vivian", "134690",3,2,2,3);
+var vivian = new Character("Vivian Lopez", "vivian", "ch_blu",3,4,3,4);
 vivian.tr_mit = [2,2,2,4,4,5,6,6];
 vivian.tr_spd = [3,4,4,4,4,6,7,8];
 vivian.tr_san = [4,4,4,5,6,7,8,8];
 vivian.tr_kno = [4,5,5,5,5,6,6,7];
 
-var madame = new Character("Madame Zostra", "madame", "134690",2,3,2,3);
-madame.tr_spd = [2,3,3,5,5,6,6,7];
+var madame = new Character("Madame Zostra", "madame", "ch_blu",4,3,3,4);
 madame.tr_mit = [2,3,3,4,5,5,5,6];
+madame.tr_spd = [2,3,3,5,5,6,6,7];
 madame.tr_san = [4,4,4,5,6,7,8,8];
 madame.tr_kno = [1,3,4,4,4,5,6,6];
 
