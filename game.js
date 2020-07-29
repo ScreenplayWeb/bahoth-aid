@@ -101,8 +101,8 @@ function changeTraitValue(){
             plrDisplay.innerHTML += "<div class='playerBox2'><div class='charBox2 " + playerArray[j].pl_getColr() + "'><h2>" + playerArray[j].pl_name.toUpperCase() + "</h2><img src='images/" + playerArray[j].pl_getImg() + ".png' width='100' alt='My Character Image' /><p>" + playerArray[j].pl_getCharName() + "</p></div><div class='traitBox'><table id='tbl" + j +"'></table></div></div>";
             
             //DISPLAY TRAIT ROWS
-            playerChar.shoMit(j);
             playerChar.shoSpd(j);
+			playerChar.shoMit(j);
             playerChar.shoSan(j);
             playerChar.shoKno(j);
         }
